@@ -1,0 +1,11 @@
+<h1>Welcome to the longest word game</h1>
+<br>
+<%= @letters.join(" ") %>
+
+<form action="/score" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+    <%= hidden_field_tag :start_time, @start_time = Time.now %>
+    <input type="text" name="attempt">
+    <input type="submit" value="play">
+</form>
